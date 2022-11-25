@@ -1,5 +1,5 @@
 <?php
-
+    $parkingFilter = $_GET["park"] ?? "non hai scritto nulla";
     $hotels = [
 
         [
@@ -55,6 +55,11 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="index.php" method="GET">
+        <label for="parking"><h3> Find only whit Parking </h3></label>
+        <input type="checkbox" name="park" id="parking">
+    </form>
+
     <table class="table table-dark table-hover">
         <tr>
             <th>Hotel Name</th>
