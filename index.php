@@ -1,5 +1,5 @@
 <?php
-    $parkingFilter = $_GET["park"] ?? "non hai scritto nulla";
+    $parkingFilter = $_GET["park"];
     $hotels = [
 
         [
