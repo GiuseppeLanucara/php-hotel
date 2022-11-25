@@ -41,3 +41,39 @@
     ];
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table>
+        <tr>
+            <th>Hotel Name</th>
+            <th>Hotel Description</th>
+            <th>Parking</th>
+            <th>Vote</th>
+            <th>Distance To Center</th>
+        </tr>
+
+        <?php
+        foreach ($hotels as $subHotel)
+        {
+            ?>
+            <tr>
+                <td><?php echo $subHotel['name']; ?></td>
+                <td><?php echo $subHotel['description']; ?></td>
+                <td><?php echo $subHotel['parking'] ?? "no parking"; ?></td>
+                <td><?php echo $subHotel['vote']; ?></td>
+                <td><?php echo $subHotel['distance_to_center']; ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+</body>
+</html>
