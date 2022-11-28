@@ -88,7 +88,7 @@ if (!empty($vote_filter)) {
             <option value="1">Con Parcheggio</option>
         </select>
         <label for="voto"></label>
-        <select class="form-select mb-3" name="voto">
+        <select class="form-select mb-3" name="vote">
             <option value="">Tutti</option>
             <option value="1">1</option>
             <option value="2">2</option>
