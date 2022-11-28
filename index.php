@@ -43,10 +43,22 @@ $hotels = [
 $filtered_hotels = $hotels;
 
 $parking_filter = $_GET["parking"] ?? "";
+$vote_filter = $_GET["vote"] ?? "";
 if (!empty($parking_filter === 0)) {
     $temp_hotels = [];
     foreach ($hotels as $hotel) {
         if ($hotel["parking"]) {
+            $temp_hotels[] = $hotel;
+        }
+    }
+    $filtered_hotels = $temp_hotels;
+}
+
+if (!empty($vote_filter)) {
+    $vote_filter = intval($vote_filter);
+    $temp_hotels = [];
+    foreach ($filtered_hotels as $hotel) {
+        if ($hotel["vote"] >= $vote_filter) {
             $temp_hotels[] = $hotel;
         }
     }
@@ -70,9 +82,19 @@ if (!empty($parking_filter === 0)) {
 
 <body>
     <form action="index.php" method="GET">
+        <label for="parking">Parcheggio</label>
         <select class="form-select mb-3" name="parking">
             <option value="">Tutti</option>
             <option value="1">Con Parcheggio</option>
+        </select>
+        <label for="voto"></label>
+        <select class="form-select mb-3" name="voto">
+            <option value="">Tutti</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
         </select>
         <div>
             <button type="submit">Filtra</button>
